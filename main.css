@@ -81,7 +81,6 @@ button:hover {
 }
 .thumbnail-image {
     margin-bottom: 10px;
-    display: block;
     width: 100%;
   }
 
@@ -89,7 +88,6 @@ button:hover {
   .more-channel {
     text-decoration: none;
     color: rgb(114, 102, 102);
-    display: block;
     margin-bottom: 30px;
     font-size: .9rem;
   }
@@ -102,6 +100,21 @@ button:hover {
     font-weight: bold;
     /* line-height: 1.4rem; */
     padding: 0px 8px;
-    min-height: 40px;
+    min-height: 30px;
+    max-width: 320px;
   }
 
+  .search-results {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+  }
+
+  .hidden {
+    visibility: collapse;
+    overflow: hidden;
+  }

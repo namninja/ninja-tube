@@ -25,14 +25,20 @@
                         <input type="text" class="js-query ninja-text" placeholder="Search for ex: Surf">
                         <button class="ninja-btn" type="submit">Ninja Search</button>
                     </form>
-                    <h3>Results</h3>
                 </section>
-                <div class="row js-search-results">
-
+                <section class="search-results">
+                    <h3 class="js-results-heading hidden">Results</h3>
+                    <div class="row js-search-results">
                     </div>
+                    <form name="next-form" class="js-next-form">
+                        <button class="js-next-results next-results hidden ninja-btn">
+                            More Results
+                        </button>
+                    </form>
+                </section>
             </div>
         </div>
-        
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
