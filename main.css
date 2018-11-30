@@ -1,0 +1,107 @@
+body {
+    color: #e63022;
+    background-color: rgb(63, 60, 60);
+    font-family: 'Roboto', sans-serif;
+    margin-top: 25px;
+  }
+  body * {
+    box-sizing: border-box;
+  }
+
+.main-form {
+    background-color: rgb(39, 37, 37);
+    border-top: 2px solid rgb(39, 37, 37);
+    min-width: 300px;
+    border-radius: 5px 5px 5px 5px;
+    min-height: 100vh;
+    box-shadow: 2px 3px 10px rgb(2, 2, 2);
+}
+
+h1 {
+    text-align: center;
+    font-family: knewave, cursive;
+    font-size: 4em;
+}
+.search-form {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 0 auto;
+    text-align: center; */
+}
+
+.search-fields {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.ninja-text {
+    /* width: 50%; */
+    padding: 8px 16px;
+    margin: 8px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 2;
+  }
+
+.ninja-btn {
+    border-radius: 3px;
+    background-color: #e63022;
+    color: rgb(236, 229, 229);
+    border: 1px solid #e63022;
+    padding: 8px 16px;
+    margin: 8px 5px;
+    flex-grow: 1;
+}
+
+button:hover {
+    background-color:  rgb(39, 37, 37);
+    border: 1px solid rgb(39, 37, 37);
+    color: #e63022;
+  }
+
+  .video-thumb-box  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .video-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.thumbnail-image {
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+  }
+
+
+  .more-channel {
+    text-decoration: none;
+    color: rgb(114, 102, 102);
+    display: block;
+    margin-bottom: 30px;
+    font-size: .9rem;
+  }
+  .more-channel:hover, .more-channel:focus {
+    text-decoration: none;
+    color: purple;
+  }
+
+  .video-title {
+    font-weight: bold;
+    /* line-height: 1.4rem; */
+    padding: 0px 8px;
+    min-height: 40px;
+  }
+
