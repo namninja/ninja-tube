@@ -3,6 +3,7 @@ body {
   background-color: rgb(63, 60, 60);
   font-family: 'Roboto', sans-serif;
   margin-top: 25px;
+  font-size: 18px;
 }
 body * {
   box-sizing: border-box;
@@ -87,9 +88,9 @@ button:hover {
 
 .more-channel {
   text-decoration: none;
-  color: rgb(114, 102, 102);
+  color: rgb(255, 255, 255);
   margin-bottom: 30px;
-  font-size: .9rem;
+  font-size: .7em;
 }
 .more-channel:hover, .more-channel:focus {
   text-decoration: none;
@@ -98,10 +99,11 @@ button:hover {
 
 .video-title {
   font-weight: bold;
-  /* line-height: 1.4rem; */
+  line-height: 1.4rem;
   padding: 0px 8px;
   min-height: 30px;
   max-width: 320px;
+  font-size: .7em;
 }
 
 .search-results {
