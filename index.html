@@ -20,7 +20,7 @@
                 <header role="banner">
                     <h1>Ninjatube</h1>
                 </header>
-                <section role="region">
+                <section role="region" aria-controls="search-results">
 
                     <form action="#" class="js-search-form search-form">
                         <label for="ninja-input">
@@ -32,9 +32,9 @@
                         </section>
                     </form>
                 </section role="region">
-                <section class="search-results">
-                    <h3 class="js-results-heading hidden"></h3>
-                    <div class="row js-search-results">
+                <section class="search-results" id="search-results" aria-hidden="true">
+                    <h3 class="js-results-heading hidden" aria-live="assertive"></h3>
+                    <div class="row js-search-results" aria-live="polite">
                     </div>
                     <form name="next-form" class="js-next-form">
                         <button class="js-next-results next-results hidden ninja-btn">

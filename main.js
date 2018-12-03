@@ -1,20 +1,20 @@
+// initialize Global variables
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 const API_KEY = 'AIzaSyClU_CyBAIHdrxQZz1btz2NhFMn_JYg7oI';
 const search = {
   nextPageToken: null,
   searchTerms: null,
-  results: 0,
   totalResults: 0
 }
-// get input from user
+
+// User inputs search term into text field.  'Ninjas' is appended to user's input and passed into API Query
 function watchSubmit() {
   // listen for search event
   $('.js-search-form').submit(event => {
     // override default behavior
     event.preventDefault();
     // store user input and log it
-    search.nextPageToken = 0
-    search.results = 0
+    search.nextPageToken = null
     const userInput = $('.js-query').val()
     console.log(userInput)
     // add Ninja to user input and log it
@@ -31,7 +31,7 @@ function watchSubmit() {
 }
 
 
-// get data
+// This function uses AJAX to 'GET' data by setting parameters and forming API call
 function getDataFromApi(searchTerm, callback) {
   const settings = {
     url: YOUTUBE_SEARCH_URL,
@@ -50,7 +50,7 @@ function getDataFromApi(searchTerm, callback) {
   $.ajax(settings);
 }
 
-// transform the data
+// Renders the resulting data into HTML
 function renderResult(result) {
   console.log(result);
   return `
@@ -67,22 +67,28 @@ function renderResult(result) {
 `;
 }
 
-// manipulate the DOM
+// Function loops through the data and appends the result to various HTML Elements
 function displaySearchData(data) {
+  // sets next page token value for more searches
   search.nextPageToken = data.nextPageToken
-  search.results += data.pageInfo.resultsPerPage
+  // sets total results to be displayed
   search.totalResults = data.pageInfo.totalResults
+  console.log(search.totalResults)
+  // if no results, displays error 
   if (search.totalResults === 0) {
-    $('.js-results-heading').html('No Results, Please try again');
-    $('.js-search-results').html('');
-    $('.js-next-results').addClass('hidden');
+  $('.js-results-heading').html('No Results, Please try again');
+  $('.js-search-results').html('');
+  $('.js-next-results').addClass('hidden');
   } else {
-    console.log(search.nextPageToken)
-    const results = data.items.map((item, index) => renderResult(item));
-    $('.js-results-heading').removeClass('hidden');
-    $('.js-results-heading').html('Results: ' + search.results + ' / ' + search.totalResults);
-    $('.js-next-results').removeClass('hidden');
-    $('.js-search-results').html(results);
+  console.log(search.nextPageToken)
+  // loop through data and render data as html
+  const results = data.items.map((item, index) => renderResult(item));
+  // manipulate DOM to display results
+  $('.search-results').attr('aria-hidden', false);
+  $('.js-results-heading').removeClass('hidden');
+   $('.js-results-heading').html('Results: '+ search.totalResults+' total videos with '+ search.searchTerms);
+  $('.js-next-results').removeClass('hidden');
+  $('.js-search-results').html(results);
   }
 }
 
