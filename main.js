@@ -2,7 +2,9 @@ const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 const API_KEY = 'AIzaSyClU_CyBAIHdrxQZz1btz2NhFMn_JYg7oI';
 const search = {
   nextPageToken: null,
-  searchTerms: null
+  searchTerms: null,
+  results: 0,
+  totalResults: 0
 }
 // get input from user
 function watchSubmit() {
@@ -11,6 +13,8 @@ function watchSubmit() {
     // override default behavior
     event.preventDefault();
     // store user input and log it
+    search.nextPageToken = 0
+    search.results = 0
     const userInput = $('.js-query').val()
     console.log(userInput)
     // add Ninja to user input and log it
@@ -52,8 +56,8 @@ function renderResult(result) {
   return `
   <div class="col-6 js-video-thumb video-thumb">
     <div class="js-video-thumb video-thumb">
-      <a href="https://www.youtube.com/watch?v=${result.id.videoId}">
-        <img src="${result.snippet.thumbnails.medium.url}" class="thumbnail-image" alt="${result.snippet.title}">
+      <a data-fancybox="gallery" href="https://www.youtube.com/watch?v=${result.id.videoId}">
+        <img src="${result.snippet.thumbnails.high.url}" class="thumbnail-image" alt="${result.snippet.title}">
       </a>
       <p class="video-title">${result.snippet.title}</p>
       <a href="https://www.youtube.com/channel/${result.snippet.channelId}" target="_blank" class="more-channel">More From This Channel
@@ -66,11 +70,20 @@ function renderResult(result) {
 // manipulate the DOM
 function displaySearchData(data) {
   search.nextPageToken = data.nextPageToken
-  console.log(search.nextPageToken)
-  const results = data.items.map((item, index) => renderResult(item));
-  $('.js-results-heading').removeClass('hidden');
-  $('.js-next-results').removeClass('hidden');
-  $('.js-search-results').html(results);
+  search.results += data.pageInfo.resultsPerPage
+  search.totalResults = data.pageInfo.totalResults
+  if (search.totalResults === 0) {
+    $('.js-results-heading').html('No Results, Please try again');
+    $('.js-search-results').html('');
+    $('.js-next-results').addClass('hidden');
+  } else {
+    console.log(search.nextPageToken)
+    const results = data.items.map((item, index) => renderResult(item));
+    $('.js-results-heading').removeClass('hidden');
+    $('.js-results-heading').html('Results: ' + search.results + ' / ' + search.totalResults);
+    $('.js-next-results').removeClass('hidden');
+    $('.js-search-results').html(results);
+  }
 }
 
 // listen for more button event
