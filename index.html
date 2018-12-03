@@ -7,6 +7,8 @@
     <title>Ninjatube</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fondamento|Knewave|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+
     <link rel="stylesheet" href="float-grid.css" />
     <link href="main.css" rel="stylesheet" type="text/css" />
 </head>
@@ -19,15 +21,18 @@
                     <h1>Ninjatube</h1>
                 </header>
                 <section role="region" class="search-form">
-                    <h2>Search for Ninja Videos</h2>
+
                     <form action="#" class="js-search-form search-fields">
-                        <label for="query"></label>
-                        <input type="text" class="js-query ninja-text" placeholder="Search for ex: Surf">
+
+                        <label for="ninja-input">
+                            <h2>Search for Ninja Videos</h2>
+                        </label>
+                        <input id="ninja-input" type="text" class="js-query ninja-text" placeholder="Search for ex: Surf">
                         <button class="ninja-btn" type="submit">Ninja Search</button>
                     </form>
                 </section role="region">
                 <section class="search-results">
-                    <h3 class="js-results-heading hidden">Results</h3>
+                    <h3 class="js-results-heading hidden"></h3>
                     <div class="row js-search-results">
                     </div>
                     <form name="next-form" class="js-next-form">
@@ -41,8 +46,9 @@
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
     <script src="main.js"></script>
 </body>
 
